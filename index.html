@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Code Server</title>
+</head>
+<body>
+    <script>
+        // Define the JavaScript code to be served
+        const codeToServe = `
+            // Your JavaScript code goes here
+            alert("Hello!");
+        `;
+        
+        // Serve the JavaScript code when requested
+        function serveCode(req, res) {
+            res.writeHead(200, { 'Content-Type': 'text/javascript' });
+            res.end(codeToServe);
+        }
+
+        // Listen for requests and serve the code
+        http.createServer(serveCode).listen(process.env.PORT || 3000);
+    </script>
+</body>
+</html>
